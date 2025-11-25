@@ -324,46 +324,59 @@ const cartTotalEl = document.getElementById('cart-total');
 
 // Initialize the app
 function init() {
+    // Check for URL hash on load
+    const hash = window.location.hash.substring(1);
+    const validSections = ['home', 'adopt', 'shop', 'welfare', 'cart'];
+    
+    if (hash && validSections.includes(hash)) {
+        navigate(hash);
+    } else {
+        // Default to home if no valid hash
+        navigate('home');
+    }
+    
+    // Render initial content
     renderPets();
     renderShop();
-    renderCart();
-    navigate('home');
+    updateCartCount();
+    
+    // Add hash change listener
+    window.addEventListener('hashchange', function() {
+        const newHash = window.location.hash.substring(1);
+        if (validSections.includes(newHash)) {
+            navigate(newHash);
+        }
+    });
 }
 
 // Navigation
 function navigate(pageId) {
+    // Update URL hash
+    window.location.hash = pageId;
+    
     // Hide all sections
-    document.querySelectorAll('.page-section').forEach(el => {
-        el.classList.add('hidden-section');
+    document.querySelectorAll('.page-section').forEach(section => {
+        section.classList.add('hidden-section');
     });
-    
-    // Show target section
-    const target = document.getElementById(pageId);
-    if (target) target.classList.remove('hidden-section');
 
-    // Update active nav state (Desktop)
-    document.querySelectorAll('#desktop-menu button').forEach(btn => {
-        if (btn.getAttribute('data-target') === pageId) {
-            btn.classList.add('text-orange-600', 'border-b-2', 'border-orange-500');
-            btn.classList.remove('text-gray-600');
+    // Show the selected section
+    const targetSection = document.getElementById(pageId);
+    if (targetSection) {
+        targetSection.classList.remove('hidden-section');
+        targetSection.classList.add('fade-in');
+    }
+
+    // Update active link
+    document.querySelectorAll('.nav-link, .nav-mobile-link').forEach(link => {
+        if (link.getAttribute('data-target') === pageId) {
+            link.classList.add('text-orange-600');
         } else {
-            btn.classList.remove('text-orange-600', 'border-b-2', 'border-orange-500');
-            btn.classList.add('text-gray-600');
-        }
-    });
-    
-    // Mobile Nav
-    document.querySelectorAll('.nav-mobile-link').forEach(btn => {
-        if(btn.getAttribute('data-target') === pageId) {
-            btn.classList.add('text-orange-600');
-            btn.classList.remove('text-gray-500');
-        } else {
-            btn.classList.remove('text-orange-600');
-            btn.classList.add('text-gray-500');
+            link.classList.remove('text-orange-600');
         }
     });
 
-    window.scrollTo(0,0);
+    // Scroll to top
+    window.scrollTo(0, 0);
 }
 
 // Pet functions
@@ -713,6 +726,25 @@ function processPayment(e) {
     }, 2000);
 }
 
+// Expose app functions to the window object
+window.app = {
+    navigate,
+    filterPets,
+    filterShop,
+    addToCart,
+    removeFromCart,
+    openDetails,
+    openCheckout,
+    openRescueModal,
+    closeModal,
+    processPayment,
+    updateQuantity,
+    renderCart,
+    updateCartCount,
+    updateCartTotal,
+    showNotification
+};
+
 // Initialize the app when the DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     // Add event listener for the rescue form
@@ -721,25 +753,6 @@ document.addEventListener('DOMContentLoaded', () => {
         rescueForm.addEventListener('submit', handleRescueFormSubmit);
     }
 
-    // Expose app functions to the window object
-    window.app = {
-        navigate,
-        filterPets,
-        filterShop,
-        addToCart,
-        removeFromCart,
-        navigate,
-        openDetails,
-        openCheckout,
-        openRescueModal,
-        closeModal,
-        processPayment
-    };
-
     // Initialize the app
     init();
-<<<<<<< HEAD
 });
-=======
-});
->>>>>>> 139c765b5bd2a72dda10e584c02408097d67653d
