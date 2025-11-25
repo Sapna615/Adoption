@@ -738,4 +738,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initialize the app
     init();
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> 139c765b5bd2a72dda10e584c02408097d67653d
