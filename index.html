@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetHaven - Adopt, Shop & Care</title>
+    <!-- Add Tailwind CSS from CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Nunito', sans-serif; }
+        .hidden-section { display: none; }
+        .fade-in { animation: fadeIn 0.3s ease-in-out; }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #ea580c; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #c2410c; }
+        /* Animation for cart items */
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-in { animation: fadeIn 0.3s ease-out forwards; }
+    </style>
+</head>
+<body class="bg-orange-50 text-gray-800 flex flex-col min-h-screen">
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white shadow-md">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <!-- Logo -->
+            <div class="flex items-center space-x-2 text-orange-600 font-bold text-2xl cursor-pointer" onclick="window.app.navigate('home')">
+                <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M14 10a2.4 2.4 0 0 0-4.8 0v2.2a2.4 2.4 0 0 0 3.4 4.5l3.01-3.01a2.41 2.41 0 0 0 0-3.41z"/><path stroke-linecap="round" stroke-linejoin="round" d="M2 17.55V19a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-1.45a7 7 0 0 0-4-6.32V8a5 5 0 0 0-5-5 5 5 0 0 0-5 5v3.23a7 7 0 0 0-4 6.32Z"/></svg>
+                <span>PetHaven</span>
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex space-x-8 font-semibold text-gray-600" id="desktop-menu">
+                <button onclick="window.app.navigate('home')" class="nav-link hover:text-orange-500 transition-colors" data-target="home">Home</button>
+                <button onclick="window.app.navigate('adopt')" class="nav-link hover:text-orange-500 transition-colors" data-target="adopt">Adopt</button>
+                <button onclick="window.app.navigate('shop')" class="nav-link hover:text-orange-500 transition-colors" data-target="shop">Shop</button>
+                <button onclick="window.app.navigate('welfare')" class="nav-link hover:text-orange-500 transition-colors" data-target="welfare">Welfare</button>
+            </div>
+
+            <!-- Cart Icon -->
+            <div class="relative cursor-pointer" onclick="window.app.navigate('cart')">
+                <svg class="w-7 h-7 text-gray-600 hover:text-orange-600 transition-colors" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path stroke-linecap="round" stroke-linejoin="round" d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+                <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full w-5 h-5 flex items-center justify-center hidden">0</span>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div class="md:hidden flex justify-around py-3 bg-orange-50 text-sm font-medium border-t border-orange-100">
+            <button onclick="window.app.navigate('home')" class="nav-mobile-link text-gray-500" data-target="home">Home</button>
+            <button onclick="window.app.navigate('adopt')" class="nav-mobile-link text-gray-500" data-target="adopt">Adopt</button>
+            <button onclick="window.app.navigate('shop')" class="nav-mobile-link text-gray-500" data-target="shop">Shop</button>
+            <button onclick="window.app.navigate('welfare')" class="nav-mobile-link text-gray-500" data-target="welfare">Welfare</button>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow">
+        <!-- Home Section -->
+        <section id="home" class="page-section fade-in">
+            <div class="relative bg-orange-100 h-[500px] flex items-center justify-center overflow-hidden">
+                <!-- <img src="https://images.unsplash.com/photo-1450778865369-0994ca87d253?auto=format&fit=crop&w=1600&q=80" alt="Happy Pets" class="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-multiply"> -->
+                <div class="relative z-10 text-center px-4 max-w-3xl">
+                    <h1 class="text-4xl md:text-6xl font-extrabold text-orange-900 mb-6 drop-shadow-sm">Find Your Furry Soulmate</h1>
+                    <p class="text-xl text-gray-800 mb-8 font-medium">Adopt love, shop essentials, and support animal welfare.</p>
+                    <div class="flex flex-col sm:flex-row justify-center gap-4">
+                        <button onclick="window.app.navigate('adopt')" class="bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-full font-bold text-lg shadow-lg transition-transform transform hover:scale-105">Adopt a Pet</button>
+                        <button onclick="window.app.navigate('shop')" class="bg-white hover:bg-gray-50 text-orange-600 px-8 py-3 rounded-full font-bold text-lg shadow-lg transition-transform transform hover:scale-105">Shop Supplies</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Featured Categories Preview -->
+            <div class="container mx-auto px-4 py-16">
+                <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">Why Choose PetHaven?</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-orange-100">
+                        <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4 text-orange-600">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 10a2.4 2.4 0 0 0-4.8 0v2.2a2.4 2.4 0 0 0 3.4 4.5l3.01-3.01a2.41 2.41 0 0 0 0-3.41z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Loving Pets</h3>
+                        <p class="text-gray-600">All our animals are vaccinated, trained, and waiting for a loving home.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-emerald-100">
+                        <div class="w-16 h-16 bg-emerald-100 rounded-full flex items-center justify-center mx-auto mb-4 text-emerald-600">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Quality Supplies</h3>
+                        <p class="text-gray-600">Premium food, durable collars, and toys for your pet's happiness.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-blue-100">
+                        <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 text-blue-600">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg>
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Welfare First</h3>
+                        <p class="text-gray-600">We prioritize the health and safety of every animal in our care.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Adopt Section -->
+        <section id="adopt" class="page-section hidden-section fade-in">
+            <div class="container mx-auto px-4 py-8">
+                <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                    <div>
+                        <h2 class="text-3xl font-bold text-gray-800">Adopt a Pet</h2>
+                        <p class="text-gray-600 mt-2">Find your perfect companion by breed and type.</p>
+                    </div>
+                    <div class="mt-4 md:mt-0 space-x-2" id="pet-filters">
+                        <button onclick="window.app.filterPets('All')" class="filter-btn active px-4 py-2 rounded-full border border-orange-600 bg-orange-600 text-white transition-colors">All</button>
+                        <button onclick="window.app.filterPets('Dog')" class="filter-btn px-4 py-2 rounded-full border border-gray-300 bg-white text-gray-600 hover:bg-orange-50 transition-colors">Dogs</button>
+                        <button onclick="window.app.filterPets('Cat')" class="filter-btn px-4 py-2 rounded-full border border-gray-300 bg-white text-gray-600 hover:bg-orange-50 transition-colors">Cats</button>
+                    </div>
+                </div>
+                <div id="pets-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Dynamic Pet Cards Injected Here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Shop Section -->
+        <section id="shop" class="page-section hidden-section fade-in">
+            <div class="container mx-auto px-4 py-8">
+                <div class="flex flex-col md:flex-row justify-between items-center mb-8">
+                    <div>
+                        <h2 class="text-3xl font-bold text-gray-800">Pet Shop</h2>
+                        <p class="text-gray-600 mt-2">Food, collars, and accessories.</p>
+                    </div>
+                    <div class="mt-4 md:mt-0 space-x-2" id="shop-filters">
+                        <button onclick="window.app.filterShop('All')" class="shop-filter-btn active px-4 py-2 rounded-full border border-emerald-600 bg-emerald-600 text-white transition-colors">All</button>
+                        <button onclick="window.app.filterShop('Food')" class="shop-filter-btn px-4 py-2 rounded-full border border-gray-300 bg-white text-gray-600 hover:bg-emerald-50 transition-colors">Food</button>
+                        <button onclick="window.app.filterShop('Collar')" class="shop-filter-btn px-4 py-2 rounded-full border border-gray-300 bg-white text-gray-600 hover:bg-emerald-50 transition-colors">Collars</button>
+                    </div>
+                </div>
+                <div id="shop-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- Dynamic Product Cards Injected Here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Welfare Section -->
+        <section id="welfare" class="page-section hidden-section fade-in">
+            <div class="container mx-auto px-4 py-12">
+                <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
+                    <div class="md:flex">
+                        <div class="md:w-1/2">
+                            <img src="https://images.unsplash.com/photo-1544568100-847a948585b9?auto=format&fit=crop&w=1200&q=80" alt="Vet Care" class="w-full h-full object-cover">
+                        </div>
+                        <div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+                            <h2 class="text-3xl font-bold text-gray-900 mb-6">Animal Welfare & Management</h2>
+                            <p class="text-gray-600 mb-6">Our dedicated team works tirelessly to ensure the physical and mental well-being of every animal. We follow strict protocols for health management, nutrition, and socialization.</p>
+                            
+                            <div class="space-y-6">
+                                <div class="flex items-start">
+                                    <div class="bg-blue-100 p-3 rounded-full mr-4 text-blue-600">
+                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/></svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-lg text-gray-900">Health Checks</h3>
+                                        <p class="text-gray-500 text-sm">Regular veterinary screenings, vaccinations, and dental care.</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <div class="bg-green-100 p-3 rounded-full mr-4 text-green-600">
+                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+                                    </div>
+                                    <div>
+                                        <h3 class="font-bold text-lg text-gray-900">Habitat Management</h3>
+                                        <p class="text-gray-500 text-sm">Clean, spacious, and enriched environments for all breeds.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-8 p-6 bg-blue-50 rounded-xl border border-blue-100">
+                                <h3 class="font-bold text-blue-900 mb-2">Report a Case</h3>
+                                <p class="text-blue-800 text-sm mb-4">See an animal in distress? Let us know immediately.</p>
+                                <button onclick="window.app.openRescueModal()" class="w-full bg-blue-600 text-white py-2 rounded-lg font-bold hover:bg-blue-700 transition-colors">Contact Rescue Team</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cart Section -->
+        <section id="cart" class="page-section hidden-section fade-in">
+            <div class="container mx-auto px-4 py-12 max-w-4xl">
+                <h2 class="text-3xl font-bold text-gray-900 mb-8">Your Cart</h2>
+                
+                <div id="cart-empty-message" class="text-center hidden">
+                    <div class="bg-orange-50 w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 text-orange-400">
+                        <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800">Your cart is empty</h3>
+                    <button onclick="window.app.navigate('shop')" class="mt-6 bg-orange-600 text-white px-8 py-2 rounded-full font-bold">Start Shopping</button>
+                </div>
+
+                <div id="cart-content" class="flex flex-col lg:flex-row gap-8">
+                    <!-- Cart Items List -->
+                    <div id="cart-items" class="flex-1 space-y-4"></div>
+
+                    <!-- Checkout Summary -->
+                    <div class="lg:w-80 h-fit bg-white p-6 rounded-2xl shadow-lg border border-gray-100">
+                        <h3 class="font-bold text-lg text-gray-900 mb-4">Order Summary</h3>
+                        <div class="space-y-2 mb-6 text-gray-600">
+                            <div class="flex justify-between"><span>Subtotal</span><span id="cart-subtotal">$0</span></div>
+                            <div class="flex justify-between"><span>Taxes (Included)</span><span>$0</span></div>
+                            <div class="flex justify-between font-bold text-gray-900 pt-4 border-t"><span>Total</span><span id="cart-total">$0</span></div>
+                        </div>
+                        <button onclick="window.app.openCheckout()" class="w-full bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-xl font-bold shadow-md transition-colors">Proceed to Booking</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8 mt-auto">
+        <div class="container mx-auto px-4 text-center">
+            <p class="font-bold text-xl mb-2">PetHaven</p>
+            <p class="text-gray-400 text-sm">© 2024 PetHaven Welfare Society. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- MODAL: Product/Pet Details -->
+    <div id="details-modal" class="fixed inset-0 z-[60] hidden">
+        <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" onclick="window.app.closeModal('details-modal')"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-2xl shadow-2xl w-full max-w-2xl overflow-hidden flex flex-col md:flex-row">
+            <div class="md:w-1/2 h-64 md:h-auto bg-gray-100 relative">
+                <img id="modal-img" src="" alt="Detail" class="absolute inset-0 w-full h-full object-cover">
+            </div>
+            <div class="md:w-1/2 p-8 flex flex-col overflow-y-auto">
+                <div class="flex justify-between items-start mb-2">
+                    <h2 id="modal-title" class="text-2xl font-bold text-gray-900"></h2>
+                    <button onclick="window.app.closeModal('details-modal')" class="text-gray-400 hover:text-gray-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
+                    </button>
+                </div>
+                <p id="modal-subtitle" class="text-emerald-600 font-bold text-sm uppercase mb-4"></p>
+                <p id="modal-desc" class="text-gray-600 mb-6 flex-grow"></p>
+                <div id="modal-meta" class="grid grid-cols-2 gap-4 mb-6 hidden">
+                    <!-- Injected meta info like age/gender -->
+                </div>
+                <div class="pt-4 border-t border-gray-100 mt-auto">
+                    <div class="flex justify-between items-center mb-4">
+                        <span class="text-gray-500">Price</span>
+                        <span id="modal-price" class="text-3xl font-bold text-gray-900"></span>
+                    </div>
+                    <button id="modal-action-btn" class="w-full bg-orange-600 hover:bg-orange-700 text-white py-3 rounded-xl font-bold transition-colors">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: Checkout / Payment -->
+    <div id="payment-modal" class="fixed inset-0 z-[70] hidden">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="window.app.closeModal('payment-modal')"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-2xl shadow-2xl w-full max-w-md p-8">
+            
+            <!-- Form State -->
+            <div id="payment-form">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-2xl font-bold text-gray-900">Booking & Payment</h2>
+                    <button onclick="window.app.closeModal('payment-modal')" class="text-gray-400 hover:text-gray-600">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12"/></svg>
+                    </button>
+                </div>
+                <form onsubmit="window.app.processPayment(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Full Name</label>
+                        <input required type="text" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-orange-500 outline-none" placeholder="Jane Doe">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Address</label>
+                        <input required type="text" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-orange-500 outline-none" placeholder="123 Street Name">
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase mb-1">Card Number</label>
+                            <input required type="text" placeholder="0000 0000 0000 0000" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-orange-500 outline-none">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase mb-1">CVC</label>
+                            <input required type="text" placeholder="123" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-orange-500 outline-none">
+                        </div>
+                    </div>
+                    <button type="submit" id="pay-btn" class="w-full mt-4 bg-gray-900 hover:bg-black text-white py-3 rounded-xl font-bold transition-colors">
+                        Pay Now
+                    </button>
+                </form>
+            </div>
+
+            <!-- Success State -->
+            <div id="payment-success" class="hidden text-center py-4">
+                <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6 text-green-600 animate-bounce">
+                    <svg class="w-10 h-10" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <h2 class="text-2xl font-bold text-gray-900 mb-2">Order Confirmed!</h2>
+                <p class="text-gray-600 mb-8">Your booking details have been sent to your email.</p>
+                <button onclick="window.app.closeModal('payment-modal'); window.app.navigate('home')" class="w-full bg-orange-600 text-white py-3 rounded-xl font-bold">Back to Home</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Rescue Team Modal -->
+    <div id="rescue-modal" class="fixed inset-0 z-[80] hidden">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm" onclick="window.app.closeModal('rescue-modal')"></div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-2xl shadow-2xl w-full max-w-md p-8">
+            <h2 class="text-2xl font-bold text-gray-900 mb-6">Report an Animal in Distress</h2>
+            
+            <form id="rescue-form" class="space-y-4">
+                <div>
+                    <label for="location" class="block text-sm font-medium text-gray-700 mb-1">Location *</label>
+                    <input type="text" id="location" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                </div>
+                
+                <div>
+                    <label for="animal-type" class="block text-sm font-medium text-gray-700 mb-1">Animal Type *</label>
+                    <select id="animal-type" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
+                        <option value="">Select animal type</option>
+                        <option value="dog">Dog</option>
+                        <option value="cat">Cat</option>
+                        <option value="bird">Bird</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label for="description" class="block text-sm font-medium text-gray-700 mb-1">Description *</label>
+                    <textarea id="description" rows="3" required class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Please describe the situation and the animal's condition"></textarea>
+                </div>
+                
+                <div>
+                    <label for="contact" class="block text-sm font-medium text-gray-700 mb-1">Your Contact (Optional)</label>
+                    <input type="text" id="contact" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500" placeholder="Email or phone number">
+                </div>
+                
+                <div class="pt-2">
+                    <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-xl font-bold hover:bg-blue-700 transition-colors">
+                        Send Report
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Load JavaScript -->
+    <script src="app.js"></script>
+</body>
+</html>
