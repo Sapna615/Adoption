@@ -1,745 +1,1445 @@
-// Data
-const PETS = [
-    // Existing pets
-    {
-        id: 'p1',
-        name: 'Bella',
-        type: 'Dog',
-        breed: 'Golden Retriever',
-        age: '2 years',
-        gender: 'Female',
-        price: 150,
-        image: 'https://images.unsplash.com/photo-1552053831-71594a27632d?auto=format&fit=crop&w=600&q=80',
-        description: 'Bella is a ray of sunshine. She loves playing fetch and is great with kids.'
-    },
-    {
-        id: 'p2',
-        name: 'Max',
-        type: 'Dog',
-        breed: 'Siberian Husky',
-        age: '3 years',
-        gender: 'Male',
-        price: 200,
-        image: 'https://images.unsplash.com/photo-1544568100-12612527cc8d?auto=format&fit=crop&w=600&q=80',
-        description: 'Max is an energetic and friendly husky who loves long walks and snow.'
-    },
-    {
-        id: 'p3',
-        name: 'Luna',
-        type: 'Cat',
-        breed: 'Siamese',
-        age: '1.5 years',
-        gender: 'Female',
-        price: 120,
-        image: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=600&q=80',
-        description: 'Luna is a graceful and affectionate Siamese cat who loves to cuddle.'
-    },
-    // New pets
-    {
-        id: 'p4',
-        name: 'Charlie',
-        type: 'Dog',
-        breed: 'Beagle',
-        age: '1 year',
-        gender: 'Male',
-        price: 180,
-        image: 'https://images.unsplash.com/photo-1601758228041-f3b2795255f1?auto=format&fit=crop&w=600&q=80',
-        description: 'Charlie is a playful beagle with a great sense of smell. He loves outdoor adventures and is great with families.'
-    },
-    {
-        id: 'p5',
-        name: 'Milo',
-        type: 'Cat',
-        breed: 'Maine Coon',
-        age: '2.5 years',
-        gender: 'Male',
-        price: 220,
-        image: 'https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?auto=format&fit=crop&w=600&q=80',
-        description: 'Milo is a majestic Maine Coon with a gentle personality. He enjoys being around people and is very affectionate.'
-    },
-    {
-        id: 'p6',
-        name: 'Daisy',
-        type: 'Dog',
-        breed: 'Dachshund',
-        age: '4 years',
-        gender: 'Female',
-        price: 170,
-        image: 'https://images.unsplash.com/photo-1518020382112-a041986f8582?auto=format&fit=crop&w=600&q=80',
-        description: 'Daisy is a sweet and loyal dachshund who loves to cuddle and go for short walks. She gets along well with other pets.'
-    },
-    {
-        id: 'p7',
-        name: 'Oliver',
-        type: 'Cat',
-        breed: 'British Shorthair',
-        age: '1 year',
-        gender: 'Male',
-        price: 250,
-        image: 'https://images.unsplash.com/photo-1526336024174-e58f5cdd8e13?auto=format&fit=crop&w=600&q=80',
-        description: 'Oliver is a charming British Shorthair with a plush coat. He has a calm demeanor and loves to play with feather toys.'
-    },
-    {
-        id: 'p8',
-        name: 'Lucy',
-        type: 'Dog',
-        breed: 'Poodle',
-        age: '5 years',
-        gender: 'Female',
-        price: 210,
-        image: 'https://images.unsplash.com/photo-1611003228941-98852ba62227?auto=format&fit=crop&w=600&q=80',
-        description: 'Lucy is an intelligent poodle who is already trained in basic commands. She loves water and enjoys learning new tricks.'
-    },
-    {
-        id: 'p9',
-        name: 'Leo',
-        type: 'Cat',
-        breed: 'Ragdoll',
-        age: '2 years',
-        gender: 'Male',
-        price: 230,
-        image: 'https://images.unsplash.com/photo-1574158622682-e40e69881006?auto=format&fit=crop&w=600&q=80',
-        description: 'Leo is a beautiful Ragdoll cat with striking blue eyes. He has a gentle nature and loves to be held and cuddled.'
-    }
+const pets = [
+  {
+    name:'Buddy',
+    breed:'Labrador Retriever',
+    species:'Dog',
+    age:2,
+    stage:'Young',
+    gender:'Male',
+    size:'Large',
+    location:'Ludhiana',
+    energy:'High',
+    emoji:'🐶',
+    personality:'Friendly, playful and eager to learn.',
+    health:'Routine care should be verified with the adoption center.'
+  },
+  {
+    name:'Luna',
+    breed:'Domestic Shorthair',
+    species:'Cat',
+    age:3,
+    stage:'Adult',
+    gender:'Female',
+    size:'Small',
+    location:'Chandigarh',
+    energy:'Medium',
+    emoji:'🐱',
+    personality:'Calm, affectionate and curious.',
+    health:'Routine care should be verified with the adoption center.'
+  },
+  {
+    name:'Milo',
+    breed:'Indie',
+    species:'Dog',
+    age:1,
+    stage:'Young',
+    gender:'Male',
+    size:'Medium',
+    location:'Delhi',
+    energy:'High',
+    emoji:'🐕',
+    personality:'Energetic, social and adaptable.',
+    health:'Routine care should be verified with the adoption center.'
+  },
+  {
+    name:'Coco',
+    breed:'Persian Mix',
+    species:'Cat',
+    age:6,
+    stage:'Senior',
+    gender:'Female',
+    size:'Small',
+    location:'Amritsar',
+    energy:'Low',
+    emoji:'😺',
+    personality:'Gentle and relaxed, happiest in a quiet home.',
+    health:'Routine care should be verified with the adoption center.'
+  },
+  {
+    name:'Rocky',
+    breed:'Beagle',
+    species:'Dog',
+    age:4,
+    stage:'Adult',
+    gender:'Male',
+    size:'Medium',
+    location:'Jaipur',
+    energy:'High',
+    emoji:'🐶',
+    personality:'Curious, cheerful and active.',
+    health:'Routine care should be verified with the adoption center.'
+  },
+  {
+    name:'Nala',
+    breed:'Indie Cat',
+    species:'Cat',
+    age:2,
+    stage:'Young',
+    gender:'Female',
+    size:'Small',
+    location:'Mohali',
+    energy:'Medium',
+    emoji:'🐱',
+    personality:'Playful and people-friendly.',
+    health:'Routine care should be verified with the adoption center.'
+  },
+  {
+    name:'Simba',
+    breed:'Indie',
+    species:'Dog',
+    age:7,
+    stage:'Senior',
+    gender:'Male',
+    size:'Large',
+    location:'Patiala',
+    energy:'Low',
+    emoji:'🦮',
+    personality:'Steady, loyal and enjoys a calm routine.',
+    health:'Routine care should be verified with the adoption center.'
+  },
+  {
+    name:'Daisy',
+    breed:'Indie Cat',
+    species:'Cat',
+    age:1,
+    stage:'Young',
+    gender:'Female',
+    size:'Small',
+    location:'Jalandhar',
+    energy:'High',
+    emoji:'🐈',
+    personality:'Bright, playful and curious.',
+    health:'Routine care should be verified with the adoption center.'
+  }
 ];
 
-const PRODUCTS = [
-    // Existing products
-    {
-        id: 'pd1',
-        name: 'Premium Dog Food',
-        type: 'Food',
-        category: 'Dog',
-        price: 29.99,
-        image: 'https://images.unsplash.com/photo-1589927986086-c7a35e2d0f4d?auto=format&fit=crop&w=600&q=80',
-        description: 'High-quality dog food with real meat and vegetables. 15lb bag.'
-    },
-    {
-        id: 'pd2',
-        name: 'Cat Litter Box',
-        type: 'Accessory',
-        category: 'Cat',
-        price: 24.99,
-        image: 'https://images.unsplash.com/photo-1605491379640-2efc8dc3778d?auto=format&fit=crop&w=600&q=80',
-        description: 'Enclosed cat litter box with carbon filter to control odor.'
-    },
-    // New products - Food
-    {
-        id: 'pd3',
-        name: 'Grain-Free Salmon Dry Food',
-        type: 'Food',
-        category: 'Dog',
-        price: 49.99,
-        image: 'https://images.unsplash.com/photo-1586277400033-8a1c1a7b5a7e?auto=format&fit=crop&w=600&q=80',
-        description: 'Premium grain-free salmon recipe for adult dogs. 20lb bag.'
-    },
-    {
-        id: 'pd4',
-        name: 'Kitten Formula Wet Food',
-        type: 'Food',
-        category: 'Cat',
-        price: 19.99,
-        image: 'https://images.unsplash.com/photo-1628842763128-9a3c2c7a94c3?auto=format&fit=crop&w=600&q=80',
-        description: 'Nutrient-rich wet food specially formulated for growing kittens. 24-pack.'
-    },
-    // New products - Collars
-    {
-        id: 'pd5',
-        name: 'Leather Dog Collar',
-        type: 'Collar',
-        category: 'Dog',
-        price: 34.99,
-        image: 'https://images.unsplash.com/photo-1583511655826-057004d7f8a9?auto=format&fit=crop&w=600&q=80',
-        description: 'Genuine leather dog collar with metal buckle. Available in multiple sizes.'
-    },
-    {
-        id: 'pd6',
-        name: 'Breakaway Cat Collar',
-        type: 'Collar',
-        category: 'Cat',
-        price: 14.99,
-        image: 'https://images.unsplash.com/photo-1533738365-bd6bc6394059?auto=format&fit=crop&w=600&q=80',
-        description: 'Safe breakaway collar with bell. Adjustable and comfortable for all cat sizes.'
-    },
-    // Additional products
-    {
-        id: 'pd7',
-        name: 'Dental Care Chew Sticks',
-        type: 'Treat',
-        category: 'Dog',
-        price: 12.99,
-        image: 'https://images.unsplash.com/photo-1594149929988-8a0e9c2e6a1c?auto=format&fit=crop&w=600&q=80',
-        description: 'Dental chews that help clean teeth and freshen breath. 30 count.'
-    },
-    {
-        id: 'pd8',
-        name: 'Automatic Feeder',
-        type: 'Accessory',
-        category: 'Cat',
-        price: 59.99,
-        image: 'https://images.unsplash.com/photo-1600168072778-2a1a6d4e4b1f?auto=format&fit=crop&w=600&q=80',
-        description: 'Programmable automatic pet feeder with portion control. Holds up to 4 meals.'
-    },
-    {
-        id: 'pd9',
-        name: 'Premium Cat Tree',
-        type: 'Furniture',
-        category: 'Cat',
-        price: 129.99,
-        image: 'https://images.unsplash.com/photo-1618477466127-c61bf33a0a0b?auto=format&fit=crop&w=600&q=80',
-        description: 'Multi-level cat tree with scratching posts and cozy perches. 60" tall.'
-    },
-    {
-        id: 'pd10',
-        name: 'Dog Training Clicker',
-        type: 'Training',
-        category: 'Dog',
-        price: 5.99,
-        image: 'https://images.unsplash.com/photo-1583511655826-057004d7f8a9?auto=format&fit=crop&w=600&q=80',
-        description: 'Professional dog training clicker with wrist strap. Great for positive reinforcement.'
-    },
-    {
-        id: 'pd11',
-        name: 'Self-Cleaning Litter Box',
-        type: 'Accessory',
-        category: 'Cat',
-        price: 199.99,
-        image: 'https://images.unsplash.com/photo-1605491379640-2efc8dc3778d?auto=format&fit=crop&w=600&q=80',
-        description: 'Automatic self-cleaning litter box with odor control system. For cats up to 15 lbs.'
-    },
-    {
-        id: 'pd12',
-        name: 'Waterproof Dog Bed',
-        type: 'Bedding',
-        category: 'Dog',
-        price: 49.99,
-        image: 'https://images.unsplash.com/photo-1591768793355-74d04bb9908d?auto=format&fit=crop&w=600&q=80',
-        description: 'Orthopedic waterproof dog bed with memory foam. Available in multiple sizes.'
-    },
-    {
-        id: 'pd13',
-        name: 'Catnip Toys Set',
-        type: 'Toy',
-        category: 'Cat',
-        price: 15.99,
-        image: 'https://images.unsplash.com/photo-1533738365-bd6bc6394059?auto=format&fit=crop&w=600&q=80',
-        description: 'Set of 5 catnip-infused toys including mice, balls, and feather wands.'
-    },
-    {
-        id: 'pd14',
-        name: 'Retractable Dog Leash',
-        type: 'Accessory',
-        category: 'Dog',
-        price: 24.99,
-        image: 'https://images.unsplash.com/photo-1583511655826-057004d7f8a9?auto=format&fit=crop&w=600&q=80',
-        description: '16ft retractable leash with ergonomic handle and one-touch brake system.'
-    },
-    {
-        id: 'pd15',
-        name: 'Automatic Water Fountain',
-        type: 'Accessory',
-        category: 'Cat',
-        price: 34.99,
-        image: 'https://images.unsplash.com/photo-1600168072778-2a1a6d4e4b1f?auto=format&fit=crop&w=600&q=80',
-        description: 'Quiet 2L water fountain with 3 flow modes and replaceable filter.'
-    },
-    {
-        id: 'pd16',
-        name: 'Dog Raincoat',
-        type: 'Clothing',
-        category: 'Dog',
-        price: 29.99,
-        image: 'https://images.unsplash.com/photo-1591768793355-74d04bb9908d?auto=format&fit=crop&w=600&q=80',
-        description: 'Waterproof dog raincoat with reflective strips. Available in multiple sizes and colors.'
-    },
-    {
-        id: 'pd17',
-        name: 'Window Cat Perch',
-        type: 'Furniture',
-        category: 'Cat',
-        price: 39.99,
-        image: 'https://images.unsplash.com/photo-1618477466127-c61bf33a0a0b?auto=format&fit=crop&w=600&q=80',
-        description: 'Suction cup window perch with soft cushion. Holds up to 50 lbs.'
-    },
-    {
-        id: 'pd18',
-        name: 'Dog Life Jacket',
-        type: 'Accessory',
-        category: 'Dog',
-        price: 44.99,
-        image: 'https://images.unsplash.com/photo-1583511655826-057004d7f8a9?auto=format&fit=crop&w=600&q=80',
-        description: 'Buoyancy aid dog life jacket with handle. Perfect for swimming and boating.'
-    },
-    {
-        id: 'pd19',
-        name: 'Automatic Laser Toy',
-        type: 'Toy',
-        category: 'Cat',
-        price: 19.99,
-        image: 'https://images.unsplash.com/photo-1533738365-bd6bc6394059?auto=format&fit=crop&w=600&q=80',
-        description: 'Automatic laser pointer with multiple play modes. Keeps cats active when you\'re away.'
-    },
-    {
-        id: 'pd20',
-        name: 'Dog Car Seat Cover',
-        type: 'Accessory',
-        category: 'Dog',
-        price: 54.99,
-        image: 'https://images.unsplash.com/photo-1591768793355-74d04bb9908d?auto=format&fit=crop&w=600&q=80',
-        description: 'Waterproof and scratch-proof car seat cover with seat belt openings.'
-    },
-    {
-        id: 'pd21',
-        name: 'Cat Scratching Post',
-        type: 'Furniture',
-        category: 'Cat',
-        price: 29.99,
-        image: 'https://images.unsplash.com/1618477466127-c61bf33a0a0b?auto=format&fit=crop&w=600&q=80',
-        description: '32" tall scratching post with sisal rope and hanging toy. Helps protect furniture.'
-    },
-    {
-        id: 'pd22',
-        name: 'Dog GPS Tracker',
-        type: 'Accessory',
-        category: 'Dog',
-        price: 129.99,
-        image: 'https://images.unsplash.com/photo-1583511655826-057004d7f8a9?auto=format&fit=crop&w=600&q=80',
-        description: 'Real-time GPS tracker with activity monitoring and geofencing. Waterproof design.'
-    }
-];
+/* FAVORITES */
 
-// State
-let cart = [];
-let currentPetFilter = 'All';
-let currentShopFilter = 'All';
-let currentDetailItem = null;
+const favKey = 'pethaven-favorites';
 
-// DOM Elements
-const cartItemsEl = document.getElementById('cart-items');
-const cartEmptyMessageEl = document.getElementById('cart-empty-message');
-const cartContentEl = document.getElementById('cart-content');
-const cartCountEl = document.getElementById('cart-count');
-const cartSubtotalEl = document.getElementById('cart-subtotal');
-const cartTotalEl = document.getElementById('cart-total');
+let favorites = JSON.parse(
+  localStorage.getItem(favKey) || '[]'
+);
 
-// Initialize the app
-function init() {
-    renderPets();
-    renderShop();
-    renderCart();
-    navigate('home');
+/* HELPERS */
+
+function $(s){
+  return document.querySelector(s);
 }
 
-// Navigation
-function navigate(pageId) {
-    // Hide all sections
-    document.querySelectorAll('.page-section').forEach(el => {
-        el.classList.add('hidden-section');
-    });
-    
-    // Show target section
-    const target = document.getElementById(pageId);
-    if (target) target.classList.remove('hidden-section');
-
-    // Update active nav state (Desktop)
-    document.querySelectorAll('#desktop-menu button').forEach(btn => {
-        if (btn.getAttribute('data-target') === pageId) {
-            btn.classList.add('text-orange-600', 'border-b-2', 'border-orange-500');
-            btn.classList.remove('text-gray-600');
-        } else {
-            btn.classList.remove('text-orange-600', 'border-b-2', 'border-orange-500');
-            btn.classList.add('text-gray-600');
-        }
-    });
-    
-    // Mobile Nav
-    document.querySelectorAll('.nav-mobile-link').forEach(btn => {
-        if(btn.getAttribute('data-target') === pageId) {
-            btn.classList.add('text-orange-600');
-            btn.classList.remove('text-gray-500');
-        } else {
-            btn.classList.remove('text-orange-600');
-            btn.classList.add('text-gray-500');
-        }
-    });
-
-    window.scrollTo(0,0);
+function $$(s){
+  return [...document.querySelectorAll(s)];
 }
 
-// Pet functions
-function filterPets(type) {
-    currentPetFilter = type;
-    renderPets();
+/* MOBILE NAVIGATION */
+
+function nav(){
+
+  const menu = $('.menu');
+  const links = $('.links');
+
+  if(menu && links){
+
+    menu.onclick = () =>
+      links.classList.toggle('mobile-open');
+
+  }
+
 }
 
-function renderPets() {
-    const container = document.getElementById('pets-grid');
-    if (!container) return;
+nav();
 
-    const filteredPets = currentPetFilter === 'All' 
-        ? PETS 
-        : PETS.filter(pet => pet.type === currentPetFilter);
+/* PET CARD */
 
-    container.innerHTML = filteredPets.map(pet => `
-        <div class="bg-white rounded-2xl shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition-shadow">
-            <div class="h-48 bg-gray-100 relative">
-                <img src="${pet.image}" alt="${pet.name}" class="w-full h-full object-cover">
-                <span class="absolute top-3 right-3 bg-orange-100 text-orange-800 text-xs font-bold px-2.5 py-1 rounded-full">
-                    $${pet.price}
-                </span>
-            </div>
-            <div class="p-5">
-                <div class="flex justify-between items-start">
-                    <div>
-                        <h3 class="text-xl font-bold text-gray-900">${pet.name}</h3>
-                        <p class="text-gray-600">${pet.breed} • ${pet.gender} • ${pet.age}</p>
-                    </div>
-                </div>
-                <p class="mt-3 text-gray-600 text-sm line-clamp-2">${pet.description}</p>
-                <button onclick="window.app.openDetails('pet', '${pet.id}')" class="mt-4 w-full bg-orange-100 hover:bg-orange-200 text-orange-700 py-2 rounded-lg font-medium transition-colors">
-                    View Details
-                </button>
-            </div>
+function petCard(p){
+
+  return `
+    <article class="pet-card">
+
+      <div class="pet-img">
+        ${p.emoji}
+      </div>
+
+      <div class="pet-info">
+
+        <div class="card-top">
+
+          <span class="pet-status">
+            Available
+          </span>
+
+          <button
+            class="fav ${favorites.includes(p.name) ? 'active' : ''}"
+            data-fav="${p.name}"
+          >
+            ${favorites.includes(p.name) ? '♥' : '♡'}
+          </button>
+
         </div>
-    `).join('');
-}
 
-// Shop functions
-function filterShop(category) {
-    currentShopFilter = category;
-    renderShop();
-}
+        <h3>
+          ${p.name}
+        </h3>
 
-function renderShop() {
-    const container = document.getElementById('shop-grid');
-    if (!container) return;
-
-    const filteredProducts = currentShopFilter === 'All' 
-        ? PRODUCTS 
-        : PRODUCTS.filter(product => {
-            if (currentShopFilter === 'Food') {
-                return product.type === 'Food' || product.type === 'Treat';
-            } else if (currentShopFilter === 'Collar') {
-                return product.type === 'Collar' || product.type === 'Accessory';
-            } else if (currentShopFilter === 'Accessory') {
-                return product.type === 'Accessory' || product.type === 'Collar';
-            } else if (currentShopFilter === 'Toy') {
-                return product.type === 'Toy';
-            }
-            return product.category === currentShopFilter || product.type === currentShopFilter;
-        });
-
-    container.innerHTML = filteredProducts.map(product => `
-        <div class="bg-white rounded-2xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow">
-            <div class="h-48 bg-gray-100 relative">
-                <img src="${product.image}" alt="${product.name}" class="w-full h-full object-cover">
-                <div class="absolute top-2 right-2 bg-white/80 backdrop-blur-sm px-2 py-1 rounded-full text-xs font-semibold text-gray-800">
-                    ${product.category}
-                </div>
-            </div>
-            <div class="p-4">
-                <div class="flex justify-between items-start">
-                    <div>
-                        <h3 class="font-bold text-gray-900">${product.name}</h3>
-                        <p class="text-sm text-gray-500">${product.type} • ${product.category}</p>
-                    </div>
-                    <span class="font-bold text-orange-600">$${product.price.toFixed(2)}</span>
-                </div>
-                <p class="text-gray-600 text-sm mt-2 line-clamp-2">${product.description}</p>
-                <button onclick="window.app.addToCart('product', '${product.id}')" class="mt-4 w-full bg-orange-100 text-orange-700 py-2 rounded-lg font-medium hover:bg-orange-200 transition-colors">  Add to Cart
-                </button>
-            </div>
+        <div class="pet-meta">
+          ${p.breed} • ${p.age} yr${p.age > 1 ? 's' : ''} • ${p.gender}
         </div>
-    `).join('');
-}
 
-// Cart functions
-function addToCart(type, id) {
-    const item = type === 'pet' 
-        ? PETS.find(p => p.id === id)
-        : PRODUCTS.find(p => p.id === id);
-    
-    if (!item) return;
-
-    // Check if item already exists in cart (matching both type and id)
-    const existingItemIndex = cart.findIndex(i => i.id === id && i.type === type);
-    
-    if (existingItemIndex !== -1) {
-        // Item exists, increment quantity
-        cart[existingItemIndex].quantity += 1;
-    } else {
-        // Item doesn't exist, add new item to cart
-        cart.push({
-            ...item,
-            type,
-            quantity: 1,
-            cartId: `${type}-${id}-${Date.now()}`
-        });
-    }
-
-    // Show success notification
-    showNotification(`${item.name} added to cart!`);
-    
-    // Update UI
-    renderCart();
-    updateCartCount();
-    updateCartTotal();
-}
-
-// Show notification function
-function showNotification(message) {
-    // Create notification element if it doesn't exist
-    let notification = document.getElementById('notification');
-    if (!notification) {
-        notification = document.createElement('div');
-        notification.id = 'notification';
-        notification.className = 'fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg transform transition-all duration-300 opacity-0 translate-y-4';
-        document.body.appendChild(notification);
-    }
-    
-    // Set message and show
-    notification.textContent = message;
-    notification.classList.remove('opacity-0', 'translate-y-4');
-    notification.classList.add('opacity-100', 'translate-y-0');
-    
-    // Hide after 3 seconds
-    setTimeout(() => {
-        notification.classList.remove('opacity-100', 'translate-y-0');
-        notification.classList.add('opacity-0', 'translate-y-4');
-    }, 3000);
-}
-
-function removeFromCart(cartId) {
-    cart = cart.filter(item => item.cartId !== cartId);
-    renderCart();
-    updateCartCount();
-}
-
-function renderCart() {
-    if (!cartItemsEl || !cartEmptyMessageEl || !cartContentEl) return;
-
-    if (cart.length === 0) {
-        cartEmptyMessageEl.classList.remove('hidden');
-        cartContentEl.classList.add('hidden');
-        return;
-    }
-
-    cartEmptyMessageEl.classList.add('hidden');
-    cartContentEl.classList.remove('hidden');
-
-    cartItemsEl.innerHTML = cart.map(item => `
-        <div class="flex items-center p-4 bg-white rounded-xl shadow-sm border border-gray-100 animate-fade-in">
-            <img src="${item.image}" alt="${item.name}" class="w-20 h-20 object-cover rounded-lg">
-            <div class="ml-4 flex-1">
-                <h3 class="font-bold text-gray-900">${item.name}</h3>
-                <p class="text-sm text-gray-500">${item.type === 'pet' ? 'Adoption' : item.category}</p>
-                <div class="mt-2 flex items-center">
-                    <button onclick="window.app.updateQuantity('${item.cartId}', -1)" class="text-gray-500 hover:text-orange-600 w-6 h-6 rounded-full flex items-center justify-center border border-gray-300">-</button>
-                    <span class="mx-2 w-8 text-center">${item.quantity}</span>
-                    <button onclick="window.app.updateQuantity('${item.cartId}', 1)" class="text-gray-500 hover:text-orange-600 w-6 h-6 rounded-full flex items-center justify-center border border-gray-300">+</button>
-                </div>
-            </div>
-            <div class="text-right">
-                <div class="font-bold text-gray-900">$${item.price * item.quantity}</div>
-                <button onclick="window.app.removeFromCart('${item.cartId}')" class="mt-1 text-xs text-red-500 hover:text-red-700">Remove</button>
-            </div>
+        <div class="pet-meta">
+          📍 ${p.location} • ${p.size}
         </div>
-    `).join('');
 
-    updateCartTotal();
+        <button
+          class="small-btn"
+          data-detail="${p.name}"
+        >
+          View profile →
+        </button>
+
+      </div>
+
+    </article>
+  `;
 }
 
-function updateQuantity(cartId, change) {
-    const item = cart.find(i => i.cartId === cartId);
-    if (!item) return;
+/* PET ACTIONS */
 
-    item.quantity = Math.max(0, item.quantity + change);
+function bindPetActions(){
 
-    if (item.quantity <= 0) {
-        removeFromCart(cartId);
-    } else {
-        renderCart();
-        updateCartCount();
-        updateCartTotal();
-    }
-}
+  $$('[data-fav]').forEach(b => {
 
-function updateCartTotal() {
-    const subtotal = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
-    const total = subtotal; // Add tax/shipping if needed
-    
-    if (cartSubtotalEl) cartSubtotalEl.textContent = `$${subtotal.toFixed(2)}`;
-    if (cartTotalEl) cartTotalEl.textContent = `$${total.toFixed(2)}`;
-}
+    b.onclick = () => {
 
-function updateCartCount() {
-    if (!cartCountEl) return;
-    
-    const count = cart.reduce((sum, item) => sum + item.quantity, 0);
-    if (count > 0) {
-        cartCountEl.textContent = count;
-        cartCountEl.classList.remove('hidden');
-    } else {
-        cartCountEl.classList.add('hidden');
-    }
-}
+      const n = b.dataset.fav;
 
-// Modal functions
-function openRescueModal() {
-    const modal = document.getElementById('rescue-modal');
-    if (modal) {
-        modal.classList.remove('hidden');
-        document.body.style.overflow = 'hidden'; // Prevent scrolling when modal is open
-    }
-}
+      favorites = favorites.includes(n)
+        ? favorites.filter(x => x !== n)
+        : [...favorites, n];
 
-// Handle rescue form submission
-function handleRescueFormSubmit(e) {
-    e.preventDefault();
-    
-    // Get form values
-    const location = document.getElementById('location').value;
-    const animalType = document.getElementById('animal-type').value;
-    const description = document.getElementById('description').value;
-    const contact = document.getElementById('contact').value;
-    
-    // Here you would typically send this data to a server
-    console.log('Rescue Report Submitted:', { location, animalType, description, contact });
-    
-    // Show success message
-    showNotification('Your report has been submitted. Our team will respond shortly.');
-    
-    // Close the modal
-    closeModal('rescue-modal');
-    
-    // Reset the form
-    document.getElementById('rescue-form').reset();
-}
+      localStorage.setItem(
+        favKey,
+        JSON.stringify(favorites)
+      );
 
-function openDetails(type, id) {
-    const item = type === 'pet' 
-        ? PETS.find(p => p.id === id)
-        : PRODUCTS.find(p => p.id === id);
-    
-    if (!item) return;
+      renderPets();
 
-    currentDetailItem = { ...item, type };
-    
-    const modal = document.getElementById('details-modal');
-    if (!modal) return;
-
-    // Set modal content
-    document.getElementById('modal-title').textContent = item.name;
-    document.getElementById('modal-img').src = item.image;
-    document.getElementById('modal-img').alt = item.name;
-    document.getElementById('modal-subtitle').textContent = type === 'pet' 
-        ? `${item.breed} • ${item.gender} • ${item.age}`
-        : item.brand;
-    document.getElementById('modal-desc').textContent = item.description;
-    document.getElementById('modal-price').textContent = `$${item.price}`;
-
-    const metaEl = document.getElementById('modal-meta');
-    const actionBtn = document.getElementById('modal-action-btn');
-    
-    if (type === 'pet') {
-        if (metaEl) {
-            metaEl.classList.remove('hidden');
-            metaEl.innerHTML = `
-                <div><span class="text-gray-500">Breed</span><div class="font-medium">${item.breed}</div></div>
-                <div><span class="text-gray-500">Age</span><div class="font-medium">${item.age}</div></div>
-                <div><span class="text-gray-500">Gender</span><div class="font-medium">${item.gender}</div></div>
-                <div><span class="text-gray-500">Type</span><div class="font-medium">${item.type}</div></div>
-            `;
-        }
-        if (actionBtn) {
-            actionBtn.textContent = 'Adopt Me';
-            actionBtn.onclick = () => {
-                addToCart('pet', item.id);
-                closeModal('details-modal');
-            };
-        }
-    } else {
-        if (metaEl) metaEl.classList.add('hidden');
-        if (actionBtn) {
-            actionBtn.textContent = 'Add to Cart';
-            actionBtn.onclick = () => {
-                addToCart('product', item.id);
-                closeModal('details-modal');
-            };
-        }
-    }
-
-    // Show modal
-    modal.classList.remove('hidden');
-}
-
-function openCheckout() {
-    if (cart.length === 0) return;
-    const modal = document.getElementById('payment-modal');
-    if (modal) modal.classList.remove('hidden');
-}
-
-function closeModal(modalId) {
-    const modal = document.getElementById(modalId);
-    if (modal) modal.classList.add('hidden');
-}
-
-function processPayment(e) {
-    if (e) e.preventDefault();
-    
-    const form = document.getElementById('payment-form');
-    const success = document.getElementById('payment-success');
-    const btn = document.getElementById('pay-btn');
-    
-    if (!form || !success || !btn) return;
-    
-    const originalText = btn.innerText;
-    btn.disabled = true;
-    btn.innerText = 'Processing...';
-    
-    // Simulate API call
-    setTimeout(() => {
-        btn.disabled = false;
-        btn.innerText = originalText;
-        
-        // Show success
-        form.classList.add('hidden');
-        success.classList.remove('hidden');
-        
-        // Clear cart
-        cart = [];
-        renderCart();
-        updateCartCount();
-    }, 2000);
-}
-
-// Initialize the app when the DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-    // Add event listener for the rescue form
-    const rescueForm = document.getElementById('rescue-form');
-    if (rescueForm) {
-        rescueForm.addEventListener('submit', handleRescueFormSubmit);
-    }
-
-    // Expose app functions to the window object
-    window.app = {
-        navigate,
-        filterPets,
-        filterShop,
-        addToCart,
-        removeFromCart,
-        navigate,
-        openDetails,
-        openCheckout,
-        openRescueModal,
-        closeModal,
-        processPayment
     };
 
-    // Initialize the app
-    init();
-<<<<<<< HEAD
-});
-=======
-});
->>>>>>> 139c765b5bd2a72dda10e584c02408097d67653d
+  });
+
+  $$('[data-detail]').forEach(b => {
+
+    b.onclick = () =>
+      openPet(b.dataset.detail);
+
+  });
+
+}
+
+/* RENDER PETS */
+
+function renderPets(){
+
+  const grid = $('#petGrid');
+
+  if(!grid) return;
+
+  const q =
+    ($('#search')?.value || '').toLowerCase();
+
+  const sp =
+    $('#species')?.value || 'all';
+
+  const age =
+    $('#age')?.value || 'all';
+
+  const gender =
+    $('#gender')?.value || 'all';
+
+  const size =
+    $('#size')?.value || 'all';
+
+  const loc =
+    $('#location')?.value || 'all';
+
+  const onlyFav =
+    $('#showFavorites')?.dataset.active === 'true';
+
+  const filtered = pets.filter(p =>
+
+    (!q ||
+      `${p.name} ${p.breed} ${p.location}`
+        .toLowerCase()
+        .includes(q)
+    )
+
+    &&
+
+    (sp === 'all' || p.species === sp)
+
+    &&
+
+    (age === 'all' || p.stage === age)
+
+    &&
+
+    (gender === 'all' || p.gender === gender)
+
+    &&
+
+    (size === 'all' || p.size === size)
+
+    &&
+
+    (loc === 'all' || p.location === loc)
+
+    &&
+
+    (!onlyFav || favorites.includes(p.name))
+
+  );
+
+  grid.innerHTML =
+    filtered.map(petCard).join('');
+
+  if($('#empty')){
+    $('#empty').hidden =
+      filtered.length > 0;
+  }
+
+  if($('#petCount')){
+
+    $('#petCount').textContent =
+      `${filtered.length} pet${filtered.length === 1 ? '' : 's'} found`;
+
+  }
+
+  bindPetActions();
+
+}
+
+/* PET PAGE EVENTS */
+
+if($('#petGrid')){
+
+  [
+    'search',
+    'species',
+    'age',
+    'gender',
+    'size',
+    'location'
+  ].forEach(id => {
+
+    $('#'+id)?.addEventListener(
+      'input',
+      renderPets
+    );
+
+  });
+
+  $('#showFavorites')?.addEventListener(
+    'click',
+    () => {
+
+      const b = $('#showFavorites');
+
+      const active =
+        b.dataset.active === 'true';
+
+      b.dataset.active =
+        String(!active);
+
+      b.textContent =
+        active
+          ? '♥ My favorites'
+          : '♥ Showing favorites';
+
+      renderPets();
+
+    }
+  );
+
+  renderPets();
+
+}
+
+/* MODALS */
+
+function modal(m){
+
+  m?.classList.add('show');
+
+}
+
+function closeModals(){
+
+  $$('.modal').forEach(
+    m => m.classList.remove('show')
+  );
+
+}
+
+$$('.close').forEach(
+  b => b.onclick = closeModals
+);
+
+$$('.modal').forEach(
+  m => {
+
+    m.addEventListener(
+      'click',
+      e => {
+
+        if(e.target === m){
+          m.classList.remove('show');
+        }
+
+      }
+    );
+
+  }
+);
+
+/* PET PROFILE */
+
+function openPet(name){
+
+  const p =
+    pets.find(x => x.name === name);
+
+  if(!p) return;
+
+  const box =
+    $('#petDetail');
+
+  if(!box) return;
+
+  box.innerHTML = `
+
+    <div class="detail-hero">
+
+      <div class="detail-pet">
+        ${p.emoji}
+      </div>
+
+      <div>
+
+        <span class="pet-status">
+          Available
+        </span>
+
+        <h2>
+          ${p.name}
+        </h2>
+
+        <p>
+          ${p.breed} • ${p.age} years •
+          ${p.gender} • ${p.location}
+        </p>
+
+      </div>
+
+    </div>
+
+    <div class="detail-grid">
+
+      <div>
+        <b>Personality</b>
+        <p>${p.personality}</p>
+      </div>
+
+      <div>
+        <b>Energy</b>
+        <p>${p.energy}</p>
+      </div>
+
+      <div>
+        <b>Size</b>
+        <p>${p.size}</p>
+      </div>
+
+      <div>
+        <b>Health</b>
+        <p>${p.health}</p>
+      </div>
+
+    </div>
+
+    <div class="detail-actions">
+
+      <button
+        class="btn primary"
+        id="applyPet"
+      >
+        Request a meet & greet →
+      </button>
+
+      <button
+        class="btn secondary"
+        id="favoritePet"
+      >
+        ${
+          favorites.includes(p.name)
+            ? '♥ Saved'
+            : '♡ Save favorite'
+        }
+      </button>
+
+    </div>
+
+  `;
+
+  modal($('#petModal'));
+
+  $('#favoritePet').onclick = () => {
+
+    favorites =
+      favorites.includes(p.name)
+        ? favorites.filter(x => x !== p.name)
+        : [...favorites, p.name];
+
+    localStorage.setItem(
+      favKey,
+      JSON.stringify(favorites)
+    );
+
+    openPet(p.name);
+    renderPets();
+
+  };
+
+  $('#applyPet').onclick = () => {
+
+    closeModals();
+
+    openApplication(p.name);
+
+  };
+
+}
+
+/* APPLICATION */
+
+function openApplication(name){
+
+  const m =
+    $('#applicationModal');
+
+  if(!m) return;
+
+  $('#applicationTitle').textContent =
+    `Apply to meet ${name}`;
+
+  modal(m);
+
+}
+
+$('#applicationForm')?.addEventListener(
+  'submit',
+  e => {
+
+    e.preventDefault();
+
+    const pet =
+      $('#applicationTitle')
+        .textContent
+        .replace(
+          'Apply to meet ',
+          ''
+        );
+
+    localStorage.setItem(
+      'pethaven-last-application',
+      JSON.stringify({
+
+        pet,
+
+        name:
+          $('#appName').value,
+
+        email:
+          $('#appEmail').value,
+
+        city:
+          $('#appCity').value,
+
+        date:
+          new Date().toISOString()
+
+      })
+    );
+
+    $('#applicationContent').innerHTML = `
+
+      <div class="success">
+
+        <div>✓</div>
+
+        <h2>
+          Application saved
+        </h2>
+
+        <p>
+          Your demo application for
+          <b>${pet}</b>
+          has been recorded in this browser.
+          No real shelter submission was made.
+        </p>
+
+        <a
+          class="btn primary"
+          href="/journey.html"
+        >
+          Continue my journey →
+        </a>
+
+      </div>
+
+    `;
+
+  }
+);
+
+/* LOST & FOUND */
+
+const reports = [
+
+  {
+    type:'lost',
+    pet:'Bruno',
+    species:'Dog',
+    location:'Ludhiana',
+    date:'10 Sep',
+    emoji:'🐕',
+    text:'Brown-and-white dog, medium size. Last seen near a residential area.'
+  },
+
+  {
+    type:'found',
+    pet:'Unknown cat',
+    species:'Cat',
+    location:'Chandigarh',
+    date:'8 Sep',
+    emoji:'🐈',
+    text:'Friendly grey cat found near a neighborhood park.'
+  },
+
+  {
+    type:'lost',
+    pet:'Mimi',
+    species:'Cat',
+    location:'Amritsar',
+    date:'6 Sep',
+    emoji:'🐱',
+    text:'Small white-and-orange cat. Distinct orange patch near one ear.'
+  },
+
+  {
+    type:'found',
+    pet:'Unknown dog',
+    species:'Dog',
+    location:'Delhi',
+    date:'4 Sep',
+    emoji:'🐶',
+    text:'Young black dog found wandering near a market.'
+  }
+
+];
+
+function renderReports(type='all'){
+
+  const g =
+    $('#reportGrid');
+
+  if(!g) return;
+
+  g.innerHTML =
+    reports
+      .filter(
+        r => type === 'all' || r.type === type
+      )
+      .map(
+        r => `
+
+        <article class="report-card">
+
+          <div class="report-img">
+            ${r.emoji}
+          </div>
+
+          <span class="report-type ${r.type}">
+            ${r.type}
+          </span>
+
+          <h3>
+            ${r.pet}
+          </h3>
+
+          <p>
+            ${r.species} • 📍 ${r.location}
+          </p>
+
+          <small>
+            Reported ${r.date}
+          </small>
+
+          <p>
+            ${r.text}
+          </p>
+
+        </article>
+
+      `
+      )
+      .join('');
+
+}
+
+if($('#reportGrid')){
+
+  renderReports();
+
+  $$('[data-report]').forEach(
+    b => {
+
+      b.onclick = () => {
+
+        $$('[data-report]')
+          .forEach(
+            x => x.classList.remove('active')
+          );
+
+        b.classList.add('active');
+
+        renderReports(
+          b.dataset.report
+        );
+
+      };
+
+    }
+  );
+
+  $('#reportBtn')?.addEventListener(
+    'click',
+    () => modal($('#reportModal'))
+  );
+
+  $('#reportForm')?.addEventListener(
+    'submit',
+    e => {
+
+      e.preventDefault();
+
+      $('#reportModal')
+        .classList
+        .remove('show');
+
+      alert(
+        'Demo report saved locally. It was not published to a real rescue database.'
+      );
+
+    }
+  );
+
+}
+
+/* ADOPTION CENTERS */
+
+const centers = [
+
+  [
+    'Ludhiana',
+    'PetHaven Community Center',
+    'Adoption support, meet-and-greet guidance',
+    'Example listing',
+    '10:00 AM–6:00 PM'
+  ],
+
+  [
+    'Chandigarh',
+    'City Animal Support Center',
+    'Adoption and welfare information',
+    'Example listing',
+    '9:00 AM–5:00 PM'
+  ],
+
+  [
+    'Delhi',
+    'Urban Pet Rescue Hub',
+    'Adoption support and animal welfare',
+    'Example listing',
+    '10:00 AM–7:00 PM'
+  ],
+
+  [
+    'Amritsar',
+    'Amritsar Animal Care Point',
+    'Pet adoption and care guidance',
+    'Example listing',
+    '10:00 AM–6:00 PM'
+  ]
+
+];
+
+function openCenter(i){
+
+  const x =
+    centers[i];
+
+  const c =
+    $('#centerContent');
+
+  if(!c) return;
+
+  c.innerHTML = `
+
+    <span class="kicker">
+      ADOPTION CENTER
+    </span>
+
+    <div class="center-detail-icon">
+      📍
+    </div>
+
+    <h2>
+      ${x[1]}
+    </h2>
+
+    <p class="center-city">
+      ${x[0]}
+    </p>
+
+    <div class="detail-grid">
+
+      <div>
+        <b>Services</b>
+        <p>${x[2]}</p>
+      </div>
+
+      <div>
+        <b>Hours</b>
+        <p>${x[4]}</p>
+      </div>
+
+      <div>
+        <b>Listing status</b>
+        <p>Example portfolio listing</p>
+      </div>
+
+      <div>
+        <b>Before visiting</b>
+        <p>
+          Verify current services, hours and contact
+          details directly with the organization.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="detail-actions">
+
+      <button
+        class="btn primary"
+        onclick="document.getElementById('centerModal').classList.remove('show')"
+      >
+        Close profile
+      </button>
+
+    </div>
+
+  `;
+
+  modal($('#centerModal'));
+
+}
+
+function renderCenters(){
+
+  const g =
+    $('#centerGrid');
+
+  if(!g) return;
+
+  const q =
+    ($('#centerSearch')?.value || '')
+      .toLowerCase();
+
+  const c =
+    $('#centerCity')?.value || 'all';
+
+  g.innerHTML =
+
+    centers
+      .map(
+        (x,i) => ({
+          x,
+          i
+        })
+      )
+
+      .filter(
+        o =>
+          (c === 'all' || o.x[0] === c)
+          &&
+          (
+            !q ||
+            o.x
+              .join(' ')
+              .toLowerCase()
+              .includes(q)
+          )
+      )
+
+      .map(
+        o => `
+
+        <article class="center-card">
+
+          <div class="center-icon">
+            📍
+          </div>
+
+          <span>
+            ${o.x[0]}
+          </span>
+
+          <h3>
+            ${o.x[1]}
+          </h3>
+
+          <p>
+            ${o.x[2]}
+          </p>
+
+          <small>
+            ${o.x[3]}.
+            Verify current services and
+            hours directly before visiting.
+          </small>
+
+          <button
+            class="small-btn"
+            data-center="${o.i}"
+          >
+            View center →
+          </button>
+
+        </article>
+
+      `
+      )
+      .join('');
+
+  $$('[data-center]').forEach(
+    b =>
+      b.onclick =
+        () => openCenter(
+          +b.dataset.center
+        )
+  );
+
+}
+
+if($('#centerGrid')){
+
+  $('#centerSearch').oninput =
+    renderCenters;
+
+  $('#centerCity').onchange =
+    renderCenters;
+
+  renderCenters();
+
+}
+
+/* PET CARE GUIDES */
+
+const guides = [
+
+  [
+    '🐶',
+    'Dog care',
+    'Feeding, exercise, grooming and positive training routines.',
+    [
+      'Set a predictable feeding and exercise routine.',
+      'Use reward-based training and short, consistent sessions.',
+      'Provide fresh water, safe enrichment and regular grooming.'
+    ]
+  ],
+
+  [
+    '🐱',
+    'Cat care',
+    'Nutrition, litter hygiene, enrichment and safe indoor spaces.',
+    [
+      'Keep food, water and litter areas clean and predictable.',
+      'Offer scratching, climbing and play opportunities.',
+      'Provide quiet resting spaces and monitor changes in behavior.'
+    ]
+  ],
+
+  [
+    '🏠',
+    'First week',
+    'Set up a quiet space, establish routine and allow adjustment time.',
+    [
+      'Prepare food, water, bedding and a calm resting area before arrival.',
+      'Let the pet explore gradually instead of overwhelming them.',
+      'Keep routines consistent while the pet settles in.'
+    ]
+  ],
+
+  [
+    '🩺',
+    'Vet planning',
+    'Plan routine veterinary care and know when professional advice is needed.',
+    [
+      'Choose a veterinary service before you need urgent care.',
+      'Keep records of vaccinations, treatments and important history.',
+      'For illness or injury, seek professional veterinary advice.'
+    ]
+  ],
+
+  [
+    '🧼',
+    'Grooming',
+    'Build gentle grooming into the routine based on the pet’s coat and needs.',
+    [
+      'Introduce grooming slowly and reward calm behavior.',
+      'Use tools appropriate for the animal and coat.',
+      'Ask a professional groomer or veterinarian about special needs.'
+    ]
+  ],
+
+  [
+    '🎓',
+    'Training',
+    'Use consistency, patience and reward-based learning.',
+    [
+      'Keep training sessions short and positive.',
+      'Reward desired behavior immediately and consistently.',
+      'Avoid punishment and seek qualified help for difficult behavior.'
+    ]
+  ]
+
+];
+
+function openGuide(i){
+
+  const g =
+    guides[i];
+
+  const c =
+    $('#guideContent');
+
+  if(!c) return;
+
+  c.innerHTML = `
+
+    <div class="guide-detail-icon">
+      ${g[0]}
+    </div>
+
+    <span class="kicker">
+      PET CARE GUIDE
+    </span>
+
+    <h2>
+      ${g[1]}
+    </h2>
+
+    <p class="guide-lead">
+      ${g[2]}
+    </p>
+
+    <ul class="guide-points">
+
+      ${
+        g[3]
+          .map(
+            x => `<li>✓ ${x}</li>`
+          )
+          .join('')
+      }
+
+    </ul>
+
+    <div class="emergency-note">
+
+      <b>
+        Note:
+      </b>
+
+      This is general educational guidance.
+      Individual care needs can vary; consult a
+      qualified veterinarian or trainer when appropriate.
+
+    </div>
+
+  `;
+
+  modal($('#guideModal'));
+
+}
+
+if($('#guideGrid')){
+
+  $('#guideGrid').innerHTML =
+
+    guides
+      .map(
+        (g,i) => `
+
+        <article class="guide-card">
+
+          <div>
+            ${g[0]}
+          </div>
+
+          <h3>
+            ${g[1]}
+          </h3>
+
+          <p>
+            ${g[2]}
+          </p>
+
+          <button
+            class="small-btn"
+            data-guide="${i}"
+          >
+            Read guide →
+          </button>
+
+        </article>
+
+      `
+      )
+      .join('');
+
+  $$('[data-guide]').forEach(
+    b =>
+      b.onclick =
+        () => openGuide(
+          +b.dataset.guide
+        )
+  );
+
+}
+
+/* ADOPTION JOURNEY CHECKLIST */
+
+const checklist = [
+
+  'Choose a suitable pet and review its needs',
+
+  'Prepare a safe sleeping/rest area',
+
+  'Arrange food and clean water supplies',
+
+  'Plan routine veterinary care',
+
+  'Plan daily exercise and enrichment',
+
+  'Budget for recurring and unexpected costs',
+
+  'Check household agreement and housing rules',
+
+  'Prepare an emergency contact plan'
+
+];
+
+function renderChecklist(){
+
+  const g =
+    $('#checklist');
+
+  if(!g) return;
+
+  const saved =
+    JSON.parse(
+      localStorage.getItem(
+        'pethaven-checklist'
+      ) || '[]'
+    );
+
+  g.innerHTML =
+
+    checklist
+      .map(
+        (x,i) => `
+
+        <label class="check-item">
+
+          <input
+            type="checkbox"
+            data-check="${i}"
+            ${saved.includes(i) ? 'checked' : ''}
+          >
+
+          <span>
+            ${x}
+          </span>
+
+        </label>
+
+      `
+      )
+      .join('');
+
+  $$('[data-check]').forEach(
+    c => {
+
+      c.onchange = () => {
+
+        const s =
+          $$('[data-check]')
+            .filter(
+              x => x.checked
+            )
+            .map(
+              x => +x.dataset.check
+            );
+
+        localStorage.setItem(
+          'pethaven-checklist',
+          JSON.stringify(s)
+        );
+
+        updateProgress();
+
+      };
+
+    }
+  );
+
+  updateProgress();
+
+}
+
+function updateProgress(){
+
+  const all =
+    $$('[data-check]');
+
+  const done =
+    all.filter(
+      x => x.checked
+    ).length;
+
+  const pct =
+    all.length
+      ? Math.round(
+          done / all.length * 100
+        )
+      : 0;
+
+  if($('#progressBar')){
+    $('#progressBar')
+      .style
+      .width =
+      pct + '%';
+  }
+
+  if($('#progressTitle')){
+
+    $('#progressTitle')
+      .textContent =
+      `${pct}% ready`;
+
+  }
+
+}
+
+renderChecklist();
+
+/* MATCH SYSTEM */
+
+$('#matchBtn')?.addEventListener(
+  'click',
+  () => {
+
+    const sp =
+      $('#matchSpecies').value;
+
+    const act =
+      $('#activity').value;
+
+    const time =
+      $('#time').value;
+
+    const home =
+      $('#homeType').value;
+
+    let ranked =
+
+      pets
+
+        .filter(
+          p =>
+            sp === 'all' ||
+            p.species === sp
+        )
+
+        .map(
+          p => {
+
+            let score = 55;
+
+            if(p.energy === act){
+              score += 15;
+            }
+
+            if(
+              (act === 'High' &&
+               p.energy === 'High')
+
+              ||
+
+              (act === 'Low' &&
+               p.energy === 'Low')
+            ){
+              score += 10;
+            }
+
+            if(
+              time === '4+ hours' &&
+              p.energy !== 'Low'
+            ){
+              score += 8;
+            }
+
+            if(
+              home === 'Apartment' &&
+              p.size === 'Small'
+            ){
+              score += 10;
+            }
+
+            if(
+              home === 'House with yard' &&
+              p.species === 'Dog'
+            ){
+              score += 8;
+            }
+
+            return {
+              ...p,
+              score:Math.min(
+                98,
+                score
+              )
+            };
+
+          }
+        )
+
+        .sort(
+          (a,b) =>
+            b.score - a.score
+        )
+
+        .slice(0,3);
+
+    $('#matchResult').innerHTML =
+
+      ranked
+
+        .map(
+          p => `
+
+          <article class="match-card">
+
+            <div class="match-pet">
+              ${p.emoji}
+            </div>
+
+            <div>
+
+              <span class="match-score">
+                ${p.score}% match
+              </span>
+
+              <h3>
+                ${p.name}
+              </h3>
+
+              <p>
+                ${p.breed} • ${p.location}
+              </p>
+
+              <p>
+                ${p.personality}
+              </p>
+
+              <a
+                class="small-btn"
+                href="/adopt.html"
+              >
+                View all pets →
+              </a>
+
+            </div>
+
+          </article>
+
+        `
+        )
+        .join('');
+
+  }
+);
+
+/* DARK MODE */
+
+if(
+  localStorage.getItem(
+    'pethaven-theme'
+  ) === 'dark'
+){
+
+  document.body.classList.add(
+    'dark'
+  );
+
+}
+
+const themeButton =
+  document.createElement('button');
+
+themeButton.className =
+  'theme-toggle';
+
+themeButton.textContent =
+  document.body.classList.contains('dark')
+    ? '☀'
+    : '◐';
+
+themeButton.title =
+  'Toggle dark mode';
+
+document.body.appendChild(
+  themeButton
+);
+
+themeButton.onclick = () => {
+
+  document.body.classList.toggle(
+    'dark'
+  );
+
+  localStorage.setItem(
+    'pethaven-theme',
+    document.body.classList.contains('dark')
+      ? 'dark'
+      : 'light'
+  );
+
+  themeButton.textContent =
+    document.body.classList.contains('dark')
+      ? '☀'
+      : '◐';
+
+};

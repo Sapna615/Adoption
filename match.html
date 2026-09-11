@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  >
+
+  <title>PetHaven | Find My Match</title>
+
+  <link
+    rel="stylesheet"
+    href="/styles.css"
+  >
+
+</head>
+
+<body>
+
+<nav class="nav">
+
+  <a
+    class="brand"
+    href="/index.html"
+  >
+
+    <span class="brandmark">
+      🐾
+    </span>
+
+    <span>
+      Pet<span>Haven</span>
+    </span>
+
+  </a>
+
+  <div class="links">
+
+    <a href="/adopt.html">
+      Adopt
+    </a>
+
+    <a
+      class="active-link"
+      href="/match.html"
+    >
+      Find My Match
+    </a>
+
+    <a href="/journey.html">
+      My Journey
+    </a>
+
+    <a href="/lost-found.html">
+      Lost & Found
+    </a>
+
+    <a href="/centers.html">
+      Centers
+    </a>
+
+    <a href="/care.html">
+      Pet Care
+    </a>
+
+    <a href="/welfare.html">
+      Welfare
+    </a>
+
+  </div>
+
+  <button class="menu">
+    ☰
+  </button>
+
+</nav>
+
+<main>
+
+<section class="page-hero">
+
+  <span class="kicker">
+    LIFESTYLE MATCH
+  </span>
+
+  <h1>
+    Which pet fits your life?
+  </h1>
+
+  <p>
+    Answer a few questions. PetHaven will rank the demo pets
+    by lifestyle compatibility.
+  </p>
+
+</section>
+
+<section class="section">
+
+  <div class="match-layout">
+
+    <div class="match-form">
+
+      <label>
+        Preferred species
+
+        <select id="matchSpecies">
+
+          <option value="all">
+            No preference
+          </option>
+
+          <option>
+            Dog
+          </option>
+
+          <option>
+            Cat
+          </option>
+
+        </select>
+
+      </label>
+
+      <label>
+        Home
+
+        <select id="homeType">
+
+          <option>
+            Apartment
+          </option>
+
+          <option>
+            House with yard
+          </option>
+
+        </select>
+
+      </label>
+
+      <label>
+        Activity level
+
+        <select id="activity">
+
+          <option>
+            Low
+          </option>
+
+          <option>
+            Medium
+          </option>
+
+          <option>
+            High
+          </option>
+
+        </select>
+
+      </label>
+
+      <label>
+        Daily time available
+
+        <select id="time">
+
+          <option>
+            1 hour
+          </option>
+
+          <option>
+            2–4 hours
+          </option>
+
+          <option>
+            4+ hours
+          </option>
+
+        </select>
+
+      </label>
+
+      <label>
+        Children at home
+
+        <select id="children">
+
+          <option>
+            No
+          </option>
+
+          <option>
+            Yes
+          </option>
+
+        </select>
+
+      </label>
+
+      <label>
+        Other pets
+
+        <select id="otherPets">
+
+          <option>
+            No
+          </option>
+
+          <option>
+            Yes
+          </option>
+
+        </select>
+
+      </label>
+
+      <button
+        class="btn primary"
+        id="matchBtn"
+      >
+        Find my matches →
+      </button>
+
+    </div>
+
+    <div>
+
+      <div
+        id="matchResult"
+        class="match-result"
+      >
+
+        <div class="empty">
+          Your compatibility results will appear here.
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+</main>
+
+<script src="/app.js"></script>
+
+</body>
+</html>

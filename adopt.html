@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PetHaven | Adopt</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+
+<nav class="nav">
+
+  <a class="brand" href="/index.html">
+    <span class="brandmark">🐾</span>
+    <span>Pet<span>Haven</span></span>
+  </a>
+
+  <div class="links">
+
+    <a class="active-link" href="/adopt.html">
+      Adopt
+    </a>
+
+    <a href="/match.html">
+      Find My Match
+    </a>
+
+    <a href="/journey.html">
+      My Journey
+    </a>
+
+    <a href="/lost-found.html">
+      Lost & Found
+    </a>
+
+    <a href="/centers.html">
+      Centers
+    </a>
+
+    <a href="/care.html">
+      Pet Care
+    </a>
+
+    <a href="/welfare.html">
+      Welfare
+    </a>
+
+  </div>
+
+  <button class="menu">
+    ☰
+  </button>
+
+</nav>
+
+<main>
+
+<section class="page-hero">
+
+  <span class="kicker">
+    ADOPT A COMPANION
+  </span>
+
+  <h1>
+    Meet pets looking for a home.
+  </h1>
+
+  <p>
+    Search by name, breed, location or filter by species,
+    age, gender and size.
+  </p>
+
+</section>
+
+<section class="section">
+
+  <div class="filters advanced-filters">
+
+    <div class="search">
+      <span>⌕</span>
+      <input
+        id="search"
+        placeholder="Search name, breed or location..."
+      >
+    </div>
+
+    <select id="species">
+      <option value="all">All pets</option>
+      <option>Dog</option>
+      <option>Cat</option>
+    </select>
+
+    <select id="age">
+      <option value="all">Any age</option>
+      <option>Young</option>
+      <option>Adult</option>
+      <option>Senior</option>
+    </select>
+
+    <select id="gender">
+      <option value="all">Any gender</option>
+      <option>Male</option>
+      <option>Female</option>
+    </select>
+
+    <select id="size">
+      <option value="all">Any size</option>
+      <option>Small</option>
+      <option>Medium</option>
+      <option>Large</option>
+    </select>
+
+    <select id="location">
+      <option value="all">Any location</option>
+      <option>Ludhiana</option>
+      <option>Chandigarh</option>
+      <option>Delhi</option>
+      <option>Amritsar</option>
+      <option>Jaipur</option>
+      <option>Mohali</option>
+      <option>Patiala</option>
+      <option>Jalandhar</option>
+    </select>
+
+  </div>
+
+  <div class="adopt-toolbar">
+
+    <span id="petCount"></span>
+
+    <button
+      class="btn secondary"
+      id="showFavorites"
+    >
+      ♥ My favorites
+    </button>
+
+  </div>
+
+  <div
+    class="pet-grid"
+    id="petGrid"
+  ></div>
+
+  <div
+    class="empty"
+    id="empty"
+    hidden
+  >
+    No pets match those filters.
+  </div>
+
+</section>
+
+</main>
+
+<div
+  class="modal"
+  id="petModal"
+>
+
+  <div class="modal-box">
+
+    <button class="close">
+      ×
+    </button>
+
+    <div id="petDetail"></div>
+
+  </div>
+
+</div>
+
+<div
+  class="modal"
+  id="applicationModal"
+>
+
+  <div class="modal-box">
+
+    <button class="close">
+      ×
+    </button>
+
+    <span class="kicker">
+      ADOPTION APPLICATION
+    </span>
+
+    <div id="applicationContent">
+
+      <h2 id="applicationTitle">
+        Apply to meet this pet
+      </h2>
+
+      <form
+        id="applicationForm"
+        class="form-grid"
+      >
+
+        <input
+          required
+          id="appName"
+          placeholder="Your full name"
+        >
+
+        <input
+          required
+          type="email"
+          id="appEmail"
+          placeholder="Email address"
+        >
+
+        <input
+          required
+          id="appPhone"
+          placeholder="Phone number"
+        >
+
+        <input
+          required
+          id="appCity"
+          placeholder="City"
+        >
+
+        <select
+          required
+          id="housing"
+        >
+
+          <option value="">
+            Housing type
+          </option>
+
+          <option>
+            Apartment
+          </option>
+
+          <option>
+            House
+          </option>
+
+          <option>
+            Other
+          </option>
+
+        </select>
+
+        <select
+          required
+          id="experience"
+        >
+
+          <option value="">
+            Pet experience
+          </option>
+
+          <option>
+            First-time adopter
+          </option>
+
+          <option>
+            Some experience
+          </option>
+
+          <option>
+            Experienced
+          </option>
+
+        </select>
+
+        <textarea
+          required
+          id="appReason"
+          placeholder="Tell us why you want to adopt"
+        ></textarea>
+
+        <button
+          class="btn primary"
+          type="submit"
+        >
+          Submit application →
+        </button>
+
+      </form>
+
+    </div>
+
+  </div>
+
+</div>
+
+<script src="/app.js"></script>
+
+</body>
+</html>

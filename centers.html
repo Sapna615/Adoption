@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  >
+
+  <title>PetHaven | Adoption Centers</title>
+
+  <link
+    rel="stylesheet"
+    href="/styles.css"
+  >
+
+</head>
+
+<body>
+
+<nav class="nav">
+
+  <a
+    class="brand"
+    href="/index.html"
+  >
+
+    <span class="brandmark">
+      🐾
+    </span>
+
+    <span>
+      Pet<span>Haven</span>
+    </span>
+
+  </a>
+
+  <div class="links">
+
+    <a href="/adopt.html">
+      Adopt
+    </a>
+
+    <a href="/match.html">
+      Find My Match
+    </a>
+
+    <a href="/journey.html">
+      My Journey
+    </a>
+
+    <a href="/lost-found.html">
+      Lost & Found
+    </a>
+
+    <a
+      class="active-link"
+      href="/centers.html"
+    >
+      Centers
+    </a>
+
+    <a href="/care.html">
+      Pet Care
+    </a>
+
+    <a href="/welfare.html">
+      Welfare
+    </a>
+
+  </div>
+
+  <button class="menu">
+    ☰
+  </button>
+
+</nav>
+
+<main>
+
+<section class="page-hero">
+
+  <span class="kicker">
+    LOCAL SUPPORT
+  </span>
+
+  <h1>
+    Adoption Centers
+  </h1>
+
+  <p>
+    Explore example center profiles. Verify current hours and services
+    directly with an organization before visiting.
+  </p>
+
+</section>
+
+<section class="section">
+
+  <div class="center-filters">
+
+    <input
+      id="centerSearch"
+      placeholder="Search city or center..."
+    >
+
+    <select id="centerCity">
+
+      <option value="all">
+        All cities
+      </option>
+
+      <option>
+        Ludhiana
+      </option>
+
+      <option>
+        Chandigarh
+      </option>
+
+      <option>
+        Delhi
+      </option>
+
+      <option>
+        Amritsar
+      </option>
+
+    </select>
+
+  </div>
+
+  <div
+    class="center-grid"
+    id="centerGrid"
+  ></div>
+
+</section>
+
+<div
+  class="modal"
+  id="centerModal"
+>
+
+  <div class="modal-box">
+
+    <button class="close">
+      ×
+    </button>
+
+    <div id="centerContent"></div>
+
+  </div>
+
+</div>
+
+</main>
+
+<script src="/app.js"></script>
+
+</body>
+</html>

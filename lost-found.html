@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  >
+
+  <title>PetHaven | Lost & Found</title>
+
+  <link
+    rel="stylesheet"
+    href="/styles.css"
+  >
+
+</head>
+
+<body>
+
+<nav class="nav">
+
+  <a
+    class="brand"
+    href="/index.html"
+  >
+
+    <span class="brandmark">
+      🐾
+    </span>
+
+    <span>
+      Pet<span>Haven</span>
+    </span>
+
+  </a>
+
+  <div class="links">
+
+    <a href="/adopt.html">
+      Adopt
+    </a>
+
+    <a href="/match.html">
+      Find My Match
+    </a>
+
+    <a href="/journey.html">
+      My Journey
+    </a>
+
+    <a
+      class="active-link"
+      href="/lost-found.html"
+    >
+      Lost & Found
+    </a>
+
+    <a href="/centers.html">
+      Centers
+    </a>
+
+    <a href="/care.html">
+      Pet Care
+    </a>
+
+    <a href="/welfare.html">
+      Welfare
+    </a>
+
+  </div>
+
+  <button class="menu">
+    ☰
+  </button>
+
+</nav>
+
+<main>
+
+<section class="page-hero">
+
+  <span class="kicker">
+    COMMUNITY HELP
+  </span>
+
+  <h1>
+    Lost & Found Pets
+  </h1>
+
+  <p>
+    Browse demo reports and learn what information is useful
+    when helping an animal get home.
+  </p>
+
+</section>
+
+<section class="section">
+
+  <div class="tab-buttons">
+
+    <button
+      class="tab active"
+      data-report="all"
+    >
+      All
+    </button>
+
+    <button
+      class="tab"
+      data-report="lost"
+    >
+      Lost
+    </button>
+
+    <button
+      class="tab"
+      data-report="found"
+    >
+      Found
+    </button>
+
+  </div>
+
+  <div
+    class="report-grid"
+    id="reportGrid"
+  ></div>
+
+  <div class="notice">
+
+    <b>
+      Want to report an animal?
+    </b>
+
+    <span>
+      This portfolio demo does not publish reports to a real rescue database.
+      Use the form to preview the reporting experience.
+    </span>
+
+    <button
+      class="btn primary"
+      id="reportBtn"
+    >
+      Create demo report →
+    </button>
+
+  </div>
+
+</section>
+
+</main>
+
+<div
+  class="modal"
+  id="reportModal"
+>
+
+  <div class="modal-box">
+
+    <button class="close">
+      ×
+    </button>
+
+    <span class="kicker">
+      LOST & FOUND REPORT
+    </span>
+
+    <h2>
+      Create a report
+    </h2>
+
+    <form
+      id="reportForm"
+      class="form-grid"
+    >
+
+      <input
+        required
+        placeholder="Pet name or Unknown"
+      >
+
+      <select required>
+
+        <option value="">
+          Report type
+        </option>
+
+        <option>
+          Lost
+        </option>
+
+        <option>
+          Found
+        </option>
+
+      </select>
+
+      <input
+        required
+        placeholder="Location"
+      >
+
+      <input
+        required
+        type="date"
+      >
+
+      <textarea
+        required
+        placeholder="Description, color, markings and useful details"
+      ></textarea>
+
+      <button
+        class="btn primary"
+      >
+        Save demo report
+      </button>
+
+    </form>
+
+  </div>
+
+</div>
+
+<script src="/app.js"></script>
+
+</body>
+</html>
